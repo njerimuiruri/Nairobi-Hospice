@@ -11,9 +11,10 @@
 </head>
 
 <body>
-    <div class="navigationBar">
-        <a class="navigationItem" href="#">Log in</a>
-    </div>
+<div class="navigationBar">
+    <a class="navigationItem" href="{{ route('admin.login') }}">Log in</a>
+</div>
+
     <div class="mainContent">
         <div class="textContent">
             <h1 class="welcomeHeading">Nairobi Hospice Patient Management</h1>

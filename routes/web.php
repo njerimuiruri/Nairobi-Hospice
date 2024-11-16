@@ -22,7 +22,11 @@ Route::get('/pharmacist/dashboard', function () {
     return view('filament.pages.pharmacist-dashboard');
 })->name('filament.admin.pages.pharmacist-dashboard');
 
-// Main dashboard route with conditional redirection
+Route::get('/', function () {
+    return view('welcome'); 
+})->name('welcome');
+// Route::get('/admin/login', [AuthController::class, 'login'])->name('admin.login');
+
 Route::get('/admin/dashboard', function () {
     $role = auth()->user()->role->name ?? 'guest';
 
@@ -31,6 +35,6 @@ Route::get('/admin/dashboard', function () {
         'receptionist' => redirect()->route('filament.admin.pages.receptionist-dashboard'),
         'doctor' => redirect()->route('filament.admin.pages.doctor-dashboard'),
         'pharmacist' => redirect()->route('filament.admin.pages.pharmacist-dashboard'),
-        default => redirect('/'), // Redirect guests or undefined roles to home
+        default => redirect('/'),
     };
 })->name('filament.admin.pages.dashboard');

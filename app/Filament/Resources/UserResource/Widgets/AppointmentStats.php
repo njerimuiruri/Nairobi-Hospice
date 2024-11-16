@@ -2,28 +2,41 @@
 
 namespace App\Filament\Resources\UserResource\Widgets;
 
-use Filament\Widgets\ChartWidget;
+use Filament\Widgets\StatsOverviewWidget;
+use Filament\Widgets\StatsOverviewWidget\Stat;
+use App\Models\Consultation;
+use App\Models\Doctor;
+use Carbon\Carbon;
 
-class AppointmentStats extends ChartWidget
+class AppointmentStats extends StatsOverviewWidget
 {
-    protected static ?string $heading = 'Appointment Statistics';
-
-    protected function getData(): array
+    protected function getStats(): array
     {
-        // Dummy data for example
+        $today = Carbon::today();
+        
+        // Today's appointments
+        $todayAppointments = Consultation::whereDate('created_at', $today)->count();
+        
+        // Pending appointments
+        $pendingAppointments = Consultation::where('status', 'pending')->count();
+        
+        // Active doctors today
+        $activeDoctors = Doctor::whereHas('consultations', function($query) use ($today) {
+            $query->whereDate('created_at', $today);
+        })->count();
+
         return [
-            'datasets' => [
-                [
-                    'label' => 'Appointments',
-                    'data' => [10, 15, 20, 25, 30],
-                ],
-            ],
-            'labels' => ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-        ];
-    }
+            Stat::make("Today's Appointments", $todayAppointments)
+                ->description('Total appointments today')
+                ->color('success'),
 
-    protected function getType(): string
-    {
-        return 'line'; // Line chart, can also use 'bar' or other chart types
+            Stat::make('Pending Appointments', $pendingAppointments)
+                ->description('Awaiting consultation')
+                ->color('warning'),
+
+            Stat::make('Active Doctors', $activeDoctors)
+                ->description('Doctors with appointments today')
+                ->color('info'),
+        ];
     }
 }

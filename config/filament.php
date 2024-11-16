@@ -1,5 +1,7 @@
 <?php
 use Filament\Panel;
+use App\Filament\Pages\DoctorDashboard;  // Add this import at the top of the file
+
 
 return [
 
@@ -14,13 +16,17 @@ return [
     | This will allow your users to receive real-time notifications.
     |
     */
-    'panel' => function (Panel $panel): Panel {
-        return $panel
-            ->pages([
-                App\Filament\Pages\AdminDashboard::class,
-            ])
-            ->widgets([]); // Optionally clear default widgets if needed
-    },
+    // 'panel' => function (Panel $panel): Panel {
+    //     return $panel
+    //         ->pages([
+    //             App\Filament\Pages\AdminDashboard::class,
+    //             DoctorDashboard::class, 
+    //         ])
+    //         ->widgets([]); // Optionally clear default widgets if needed
+    // },
+    'pages' => [
+    \App\Filament\Pages\Dashboard::class, // Make sure this is listed here
+],
 
     'broadcasting' => [
 

@@ -17,7 +17,13 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-
+use App\Filament\Widgets\UserRegistrationsChart;
+use App\Filament\Widgets\UsersPerDayChart;
+use App\Filament\Widgets\UserActivityChart;
+use App\Filament\Widgets\BillingChart;
+use App\Filament\Widgets\PatientRecordsWidget;
+use App\Filament\Widgets\ConsultationRecordsWidget;
+use App\Filament\Widgets\PrescriptionRecordsWidget;
 class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
@@ -37,9 +43,17 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                // Widgets\AccountWidget::class,
+                // UserActivityChart::class,
+                // UsersPerDayChart::class,
+                // UserRegistrationsChart::class,
+                BillingChart::class,
+                PatientRecordsWidget::class,
+                ConsultationRecordsWidget::class,
+                PrescriptionRecordsWidget::class,
+
             ])
+           
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

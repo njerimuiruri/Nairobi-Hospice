@@ -15,8 +15,28 @@ use Illuminate\Support\Facades\Auth;
 class MedicationResource extends Resource
 {
     protected static ?string $model = Medication::class;
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-cube';
 
+    public static function canViewAny(): bool
+    {
+        $userRole = Auth::user()->userRole->name;
+        return in_array($userRole, ['admin', 'pharmacist']);
+    }
+
+    public static function canCreate(): bool
+    {
+        return Auth::user()->userRole->name === 'admin' || Auth::user()->userRole->name === 'pharmacist';
+    }
+
+    public static function canEdit($record): bool
+    {
+        return Auth::user()->userRole->name === 'admin' || Auth::user()->userRole->name === 'pharmacist';
+    }
+
+    public static function canDelete($record): bool
+    {
+        return Auth::user()->userRole->name === 'admin';
+    }
     public static function form(Form $form): Form
     {
         return $form

@@ -18,6 +18,26 @@ class PatientsTableSeeder extends Seeder
             'phone_number' => '555-5555',
             'email' => 'john.doe@example.com',
         ]);
+
+        DB::table('patients')->insert([
+            'first_name' => 'Jane',
+            'last_name' => 'Doe',
+            'date_of_birth' => '1992-05-10',
+            'gender' => 'Female',
+            'address' => '456 Oak St',
+            'phone_number' => '555-1234',
+            'email' => 'jane.doe@example.com',
+        ]);
+
+        DB::table('patients')->insert([
+            'first_name' => 'Michael',
+            'last_name' => 'Johnson',
+            'date_of_birth' => '1985-11-25',
+            'gender' => 'Male',
+            'address' => '789 Pine St',
+            'phone_number' => '555-6789',
+            'email' => 'michael.johnson@example.com',
+        ]);
     }
 }
 

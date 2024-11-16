@@ -2,33 +2,58 @@
 
 namespace App\Filament\Resources\UserResource\Widgets;
 
-use Filament\Widgets\StatsOverviewWidget as BaseWidget;
+use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
+use App\Models\Consultation;
+use App\Models\Patient;
+use App\Models\Doctor;
+use App\Models\Prescription;
+use Carbon\Carbon;
 
-class AdminStatsOverview extends BaseWidget
+class AdminStatsOverview extends StatsOverviewWidget
 {
     protected function getStats(): array
     {
+        $thisMonth = Carbon::now()->startOfMonth();
+        $lastMonth = Carbon::now()->subMonth()->startOfMonth();
+
+        // Total Revenue This Month
+        $thisMonthRevenue = Consultation::whereMonth('created_at', $thisMonth->month)
+            ->sum('consultation_fee');
+        $lastMonthRevenue = Consultation::whereMonth('created_at', $lastMonth->month)
+            ->sum('consultation_fee');
+        $revenueChange = $lastMonthRevenue ? (($thisMonthRevenue - $lastMonthRevenue) / $lastMonthRevenue) * 100 : 0;
+
+        // New Patients This Month
+        $newPatients = Patient::whereMonth('created_at', $thisMonth->month)->count();
+        $lastMonthPatients = Patient::whereMonth('created_at', $lastMonth->month)->count();
+        $patientChange = $lastMonthPatients ? (($newPatients - $lastMonthPatients) / $lastMonthPatients) * 100 : 0;
+
+        // Total Consultations This Month
+        $consultations = Consultation::whereMonth('created_at', $thisMonth->month)->count();
+
         return [
-            Stat::make('Revenue', '$192.10k')
-                ->description('32k increase')
-                ->descriptionIcon('heroicon-m-arrow-trending-up')
-                ->chart([10, 25, 30, 40, 60, 70, 90])
-                ->color('success'),
+            Stat::make('Total Revenue', '$' . number_format($thisMonthRevenue, 2))
+                ->description($revenueChange >= 0 ? '+' . number_format($revenueChange, 1) . '% increase' : number_format($revenueChange, 1) . '% decrease')
+                ->descriptionIcon($revenueChange >= 0 ? 'heroicon-m-arrow-trending-up' : 'heroicon-m-arrow-trending-down')
+                ->color($revenueChange >= 0 ? 'success' : 'danger')
+                ->chart([
+                    $lastMonthRevenue,
+                    $thisMonthRevenue,
+                ]),
 
-            Stat::make('New customers', '1.34k')
-                ->description('3% decrease')
-                ->descriptionIcon('heroicon-m-arrow-trending-down')
-                ->chart([5, 15, 20, 10, 8, 5, 12])
-                ->color('danger'),
+            Stat::make('New Patients', $newPatients)
+                ->description($patientChange >= 0 ? '+' . number_format($patientChange, 1) . '% increase' : number_format($patientChange, 1) . '% decrease')
+                ->descriptionIcon($patientChange >= 0 ? 'heroicon-m-arrow-trending-up' : 'heroicon-m-arrow-trending-down')
+                ->color($patientChange >= 0 ? 'success' : 'danger'),
 
-            Stat::make('New orders', '3.54k')
-                ->description('7% increase')
-                ->descriptionIcon('heroicon-m-arrow-trending-up')
-                ->chart([30, 40, 50, 60, 70, 80, 90])
-                ->color('success'),
+            Stat::make('Total Consultations', $consultations)
+                ->description('This month')
+                ->chart([
+                    Consultation::whereMonth('created_at', $lastMonth->month)->count(),
+                    $consultations,
+                ]),
         ];
     }
 }

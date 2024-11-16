@@ -24,7 +24,10 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
+    public static function canViewAny(): bool
+    {
+        return Auth::user() && Auth::user()->userRole->name === 'admin';
+    }
     public static function form(Form $form): Form
     {
         return $form
@@ -82,6 +85,7 @@ class UserResource extends Resource
             'index' => Pages\ListUsers::route('/'),
             'create' => Pages\CreateUser::route('/create'),
             'edit' => Pages\EditUser::route('/{record}/edit'),
+            'sort' => Pages\SortUsers::route('/sort'),
         ];
     }
 }

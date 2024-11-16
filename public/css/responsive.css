@@ -1,0 +1,62 @@
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+    margin: 0 auto; /* Center the container */
+    padding: 0 15px; /* Add some padding */
+  }
+
+  .quote_btn-container {
+    display: block; /* Ensure buttons are displayed */
+  }
+
+  .custom_nav-container .navbar-nav {
+    justify-content: flex-end; /* Align navigation to the right */
+  }
+
+  .custom_nav-container .navbar-nav .nav-item .nav-link {
+    padding: 10px 20px; /* Add more padding for larger screens */
+    font-size: 18px; /* Increase font size */
+  }
+
+  .hero_area {
+    height: 100vh; /* Make hero area full height */
+    background-size: cover; /* Ensure background covers the entire area */
+  }
+
+  .header_section .header_bottom {
+    background-color: #4A148C; /* Use a darker purple for the header */
+    padding: 20px 0; /* Add more padding */
+  }
+
+  .slider_section .detail-box h1 {
+    font-size: 3.5rem; /* Increase font size for headlines */
+    color: #FFFFFF; /* Ensure text color is white for better contrast */
+  }
+
+  .slider_section {
+    padding: 100px 0; /* Increase padding */
+  }
+
+  .contact_section .form_container {
+    background-color: #6A1B9A; /* Use a lighter purple for the contact section */
+    padding: 60px 40px; /* Add more padding */
+  }
+
+  .project_section .box .detail-box {
+    opacity: 0.9; /* Make details slightly transparent */
+    transition: opacity 0.3s; /* Add transition effect */
+  }
+
+  .project_section .box:hover .detail-box {
+    opacity: 1; /* Make details fully visible on hover */
+  }
+
+  .info_section .row>div {
+    flex-direction: row; /* Align items in a row */
+    text-align: left; /* Align text to the left */
+  }
+
+  .info_section .social_box {
+    margin-bottom: 0; /* Remove bottom margin */
+  }
+}

@@ -16,13 +16,35 @@ use Filament\Forms\Components\Select;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
-use Filament\Tables\Columns\TextColumn; // Import TextColumn correctly
+use Filament\Tables\Columns\TextColumn; 
+use Illuminate\Support\Facades\Auth;
 
 class PatientResource extends Resource
 {
     protected static ?string $model = Patient::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-identification';
+
+    public static function canViewAny(): bool
+    {
+        // Allow viewing for admin, doctor, and receptionist
+        $userRole = Auth::user()->userRole->name;
+        return in_array($userRole, ['admin', 'doctor', 'receptionist']);
+    }
+
+    public static function canCreate(): bool
+    {
+        // Allow creating records for admin and receptionist
+        return in_array(Auth::user()->userRole->name, ['admin', 'receptionist']);
+    }
+
+    public static function canEdit($record): bool
+    {
+        // Allow editing for admin, assigned doctor, and receptionist
+        return Auth::user()->userRole->name === 'admin' ||
+               (Auth::user()->userRole->name === 'doctor' && $record->doctor_id === Auth::id()) ||
+               Auth::user()->userRole->name === 'receptionist';
+    }
 
     public static function form(Form $form): Form
     {

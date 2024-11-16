@@ -1,0 +1,606 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+/*======================================================*/
+/* GENERAL STYLING */
+/*======================================================*/
+body {
+    max-width: 90vw;
+    min-height: 90vh;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8e7f6;
+    color: #14213d;
+}
+
+.errorMessage {
+    color: #ee5858;
+    text-transform: uppercase;
+    text-align: center;
+
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.addIcon {
+    content: "\002B";
+    max-width: 5vw;
+    max-height: 5vh;
+
+    background-color: #74BDCB;
+    color: #000000;
+}
+
+.deleteIcon {
+    content: "\2212";
+    max-width: 5vw;
+    max-height: 5vh;
+
+    background-color: #ee5858;
+    color: #000000;
+}
+
+
+/*======================================================*/
+/* NAVIGATION BAR STYLING */
+/*======================================================*/
+
+.navigationBar {
+    margin: 0px;
+    padding: 20px;
+
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 16px;
+}
+
+.navHeader {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.navLinks {
+    color: #14213d;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.navlinkitem {
+    text-decoration: none;
+    margin: 0px 10px;
+    padding: 5px 10px;
+    color: #000000;
+    background-color: #FFA500;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: color 0.5s;
+}
+
+.navlinkitem:hover {
+    color: #14213d;
+}
+
+#logoutBtn {
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+    font-size: medium;
+    font-weight: bold;
+    color: #000000;
+    background-color: #FFA500;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*======================================================*/
+/* PATIENT NOT FOUND STYLING */
+/*======================================================*/
+
+.errorContainer {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    max-width: 70%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    background-color: #ffffff;
+    color: #14213d;
+}
+
+.patientNotFound {
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+}
+
+/*======================================================*/
+/* SUMMARY STYLING */
+/*======================================================*/
+
+.summaryContainer {
+    margin: 0px;
+    padding: 20px 0px;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+/*======================================================*/
+/* SHORT DETAIL STYLING */
+/*======================================================*/
+
+.shortDetails {
+    flex: 1;
+}
+
+.detailCard {
+    margin: 1em 0.2em;
+    padding: 10px;
+
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.tabDetailCard {
+    margin: 0em 0.2em;
+    padding: 10px;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.pictureContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profilePicture {
+    border-radius: 20%;
+    width: 90%;
+}
+
+.patientName {
+    font-weight: bold;
+    font-size: large;
+}
+
+.statusIsActive {
+    color: green;
+}
+
+.statusIsNotActive {
+    color: #ff0000;
+}
+
+.personalItemHori {
+    padding: 10px 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.personalItemTitle {
+    color: #808080;
+    text-transform: capitalize;
+}
+
+.personalItemValue {
+    color: #000000;
+}
+
+/*======================================================*/
+/* ALLERGY STYLING */
+/*======================================================*/
+
+#addAllergySection {
+    display: none;
+}
+
+.addAllergyField {
+    max-width: 90%;
+    margin: 0.2em;
+}
+
+.allergyDataSevere {
+    color: red;
+}
+
+.allergyDataMed {
+    color: orange;
+}
+
+.allergyDataMild {
+    color: green;
+}
+
+/*======================================================*/
+/* PATIENT ACTION STYLING */
+/*======================================================*/
+
+.mainActionCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+}
+
+.mainAction {
+    margin: 0.5em;
+}
+
+#toggleActivate {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+
+    background-color: #74BDCB;
+    color: #14213d;
+
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#deletePatient {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+
+    color: #000000;
+    background-color: #FFA500;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*======================================================*/
+/* LONG DETAIL STYLING */
+/*======================================================*/
+
+.longDetails {
+    flex: 3;
+}
+
+.detailTitleSection {
+    padding: 10px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detailInfoSection {
+    padding: 10px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.addSection {
+    padding: 10px 20px;
+}
+
+.detailCardTitle {
+    font-weight: bold;
+    font-size: large;
+    color: #f42abb;
+    text-transform: uppercase;
+}
+
+.patientAction {
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px 10px;
+    max-width: 30%;
+    font-size: large;
+    font-weight: bold;
+    color: #000000;
+    background-color: #FFA500;
+    border: 1px solid #018dc4;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.detailSeparator {
+    margin: 5px 30px;
+}
+
+/*======================================================*/
+/* DETAIL TAB STYLING */
+/*======================================================*/
+
+.tabLinkRow {
+    overflow: hidden;
+    background-color: #f1f1f1;
+    margin: 0em 0.2em;
+}
+
+.tablinks {
+    font-size: medium;
+    color: #808080;
+    text-transform: uppercase;
+}
+
+.tabLinkRow button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 1em 1.2em;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tabLinkRow button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tabLinkRow button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+}
+
+/*======================================================*/
+/* PERSONAL DETAILS STYLING */
+/*======================================================*/
+
+.personalDetailTitleRow {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.personalDetailTitle {
+    margin: 0.5em 0em;
+    font-weight: bold;
+    float: left;
+}
+
+.updates {
+    display: none;
+}
+
+#patientAddress {
+    min-width: 80%;
+    min-height: 1.5em;
+}
+
+/*======================================================*/
+/* FILE UPLOAD STYLING */
+/*======================================================*/
+
+#addFileSection {
+    display: none;
+}
+
+.fileUploadSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#file_description {
+    width: 100%;
+}
+
+#addFileInput {
+    width: 80%;
+
+    border: 2px solid #018dc4;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#addFileBtn {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding: 5px 10px;
+
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+
+    background-color: #74BDCB;
+    color: #14213d;
+
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*======================================================*/
+/* SYMPTOMS STYLING */
+/*======================================================*/
+
+#addSymptomSection {
+    display: none;
+}
+
+.symptomList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.symptomTable {
+    width: 100%;
+
+    text-align: center;
+}
+
+.sympHeaderRow {
+    background-color: #74BDCB;
+}
+
+#addSymptomInput {
+    width: 80%;
+
+    border: 2px solid #018dc4;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sympHeader {
+    margin: 0px;
+}
+
+.sympDataSevere {
+    color: red;
+}
+
+.sympDataMed {
+    color: orange;
+}
+
+.sympDataMild {
+    color: green;
+}
+
+/*======================================================*/
+/* PRESCRIPTIONS STYLING */
+/*======================================================*/
+
+#addPrescriptionSection {
+    display: none;
+}
+
+.prescriptionList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prescriptionTable {
+    width: 100%;
+
+    text-align: center;
+}
+
+.presHeaderRow {
+    background-color: #74BDCB;
+}
+
+.presHeader {
+    margin: 0px;
+}
+
+#addPrescriptionInput {
+    width: 80%;
+
+    border: 2px solid #018dc4;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*======================================================*/
+/* NOTES STYLING */
+/*======================================================*/
+
+#addNoteSection {
+    display: none;
+}
+
+.noteCard {
+    margin: 1em 0.2em;
+    padding: 10px;
+
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    background-color: #E7F2F8;
+    color: #000000;
+}
+
+.noteTitleRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+#note_body {
+    width: 90%;
+
+    border: 2px solid #018dc4;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*======================================================*/
+/* FORM STYLING */
+/*======================================================*/
+
+.addActionButton {
+    cursor: pointer;
+    margin: 0em 0.3em;
+    padding: 0.3em 0.7em;
+    border: 1px solid #018dc4;
+    border-radius: 10px;
+    color: #000000;
+    background-color: #FFA500;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2);
+    transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+#deleteRecordBtn {
+    cursor: pointer;
+    margin: 0.3em;
+    padding: 0.3em 0.7em;
+    border: none;
+    border-radius: 10px;
+    color: #000000;
+    background-color: #FFA500;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2);
+    transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+}

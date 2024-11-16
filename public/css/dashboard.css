@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+/*======================================================/
+/* GENERAL STYLING */
+/*======================================================*/
+
+body {
+    max-width: 90vw;
+    min-height: 90vh;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8e7f6;
+    color: #000000;
+}
+
+.errorMessage {
+    color: red;
+    font-size: larger;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.horiBar {
+    margin: 20px;
+}
+
+/*======================================================/
+/* NAVIGATION BAR STYLING */
+/*======================================================*/
+
+.navigationBar {
+    margin: 0px;
+    padding: 20px;
+    background-color: #B388EB;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+.navHeader {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.navLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.navlinkitem {
+    text-decoration: none;
+    margin: 0px 10px;
+    padding: 5px 10px;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: color 0.5s, background-color 0.5s;
+}
+
+.navlinkitem:hover {
+    color: #000000;
+    background-color: #D1C4E9;
+}
+
+#backBtn {
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+    font-size: medium;
+    font-weight: bold;
+    background-color: #B388EB;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#logoutBtn {
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+    font-size: medium;
+    font-weight: bold;
+    background-color: #B388EB;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#logoutBtn:hover {
+    background-color: #D1C4E9;
+    color: #000000;
+}
+
+#backBtn:hover {
+    background-color: #D1C4E9;
+    color: #000000;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+/*======================================================/
+/* STATISTICS STYLING */
+/*======================================================*/
+
+.statsSection {
+    margin-top: 1vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.statCard {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    margin: 20px 5px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.statCard:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*======================================================/
+/* PATIENT SEARCH STYLING */
+/*======================================================*/
+
+.searchBarSection {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#patientIDLabel {
+    font-size: large;
+    font-weight: bold;
+}
+
+#patientID {
+    margin: 1vh 0vw;
+    padding: 0.5%;
+    width: 40vw;
+    height: 3vh;
+    border: 2px solid #6A1B9A;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.searchSubmitBtnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#searchSubmitBtn {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    padding: 5px 10px;
+    width: 15vw;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #B388EB;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#searchSubmitBtn:hover {
+    background-color: #D1C4E9;
+    color: #000000;
+}
+
+/*======================================================/
+/* SEARCH RESULTS TABLE STYLING */
+/*======================================================*/
+
+.searchResults {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.patientResultTable {
+    width: 100%;
+    text-align: center;
+}
+
+.tableHeadingRow {
+    background-color: #B388EB;
+}
+
+.tableHeading {
+    margin: 0px;
+}
+
+.searchResUserType {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#goToPatientBtn {
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #B388EB;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#goToPatientBtn:hover {
+    background-color: #D1C4E9;
+    color: #000000;
+}
+
+/*======================================================/
+/* ADD PATIENT STYLING */
+/*======================================================*/
+
+.addPatientContainer {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#addPatientLabel {
+    font-size: large;
+    font-weight: bold;
+}
+
+#addPatientInput {
+    margin: 1vh 0vw;
+    width: 40vw;
+    height: 3vh;
+    border: 2px solid #6A1B9A;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.addPatientBtnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#addNewPatientBtn {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    padding: 5px 10px;
+    width: 15vw;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #B388EB;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#addNewPatientBtn:hover {
+    background-color: #D1C4E9;
+    color: #000000;
+}
+
+#newPatientSubmitBtn {
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+    max-width: 30%;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #B388EB;
+    color: #FFFFFF;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#newPatientSubmitBtn:hover {
+    background-color: #D1C4E9;
+    color: #000000;
+}

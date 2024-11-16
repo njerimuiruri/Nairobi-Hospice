@@ -16,13 +16,31 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TimePicker;
 use Filament\Tables\Columns\TextColumn;
+use Illuminate\Support\Facades\Auth;
+
 
 class AppointmentResource extends Resource
 {
     protected static ?string $model = Appointment::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-calendar';
+    public static function canViewAny(): bool
+    {
+        $userRole = Auth::user()->userRole->name;
+        return in_array($userRole, ['admin', 'receptionist', 'doctor']);
+    }
 
+    public static function canCreate(): bool
+    {
+        return Auth::user()->userRole->name === 'receptionist' || Auth::user()->userRole->name === 'admin';
+    }
+
+    public static function canEdit($record): bool
+    {
+        $userRole = Auth::user()->userRole->name;
+        return $userRole === 'admin' || $userRole === 'receptionist' || 
+            ($userRole === 'doctor' && Auth::user()->id === $record->doctor_id);
+    }
     public static function form(Form $form): Form
     {
         return $form

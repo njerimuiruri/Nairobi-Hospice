@@ -17,11 +17,30 @@ use Filament\Tables\Actions\EditAction; // Correct import for EditAction
 use Filament\Tables\Actions\DeleteBulkAction; // Correct import for DeleteBulkAction
 use Filament\Tables\Actions\BulkActionGroup; // Correct import for BulkActionGroup
 
+use Illuminate\Support\Facades\Auth;
+
 class ConsultationResource extends Resource
 {
     protected static ?string $model = Consultation::class;
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard';
 
+    public static function canViewAny(): bool
+    {
+        $userRole = Auth::user()->userRole->name;
+        return in_array($userRole, ['admin', 'doctor']);
+    }
+
+    public static function canCreate(): bool
+    {
+        return Auth::user()->userRole->name === 'admin' || Auth::user()->userRole->name === 'doctor';
+    }
+
+    public static function canEdit($record): bool
+    {
+        $userRole = Auth::user()->userRole->name;
+        return $userRole === 'admin' || 
+               ($userRole === 'doctor' && Auth::user()->id === $record->doctor_id);
+    }
     public static function form(Form $form): Form
     {
         return $form

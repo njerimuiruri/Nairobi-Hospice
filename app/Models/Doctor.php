@@ -12,8 +12,6 @@ class Doctor extends Model
     {
         return "{$this->first_name} {$this->last_name}";
     }
-
-    // Define the consultations relationship
     public function consultations()
     {
         return $this->hasMany(Consultation::class);

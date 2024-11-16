@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+/*======================================================/
+/* GENERAL STYLING */
+/*======================================================*/
+body {
+    max-width: 90vw;
+    min-height: 90vh;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-family: 'Montserrat', sans-serif;
+    background-color: #E7F2F8;
+    color: #14213d;
+}
+
+.errorMessage {
+    color: red;
+    font-size: larger;
+    text-transform: uppercase;
+    text-align: center;
+
+    margin-top: 5vh;
+}
+
+/* /======================================================/
+/* NAVIGATION BAR STYLING */
+/*====================================================== */
+.navigationBar {
+    margin: 0px;
+    padding: 20px;
+
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 16px;
+}
+
+.navHeader {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.navLinks {
+    color: #14213d;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.navlinkitem {
+    text-decoration: none;
+    margin: 0px 10px;
+    padding: 5px 10px;
+    color: #808080;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: color 0.5s;
+    background: linear-gradient(45deg, #e0e0e0, #b3b3ff);
+}
+
+.navlinkitem:hover {
+    color: #14213d;
+    background: linear-gradient(45deg, #e0e0e0, #d1c4e9);
+}
+
+#logoutBtn {
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+    font-size: medium;
+    font-weight: bold;
+    background-color: #74BDCB;
+    color: #14213d;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*======================================================/
+/* USER SEARCH STYLING */
+/*======================================================*/
+.searchBarSection {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#userEmailLabel {
+    font-size: large;
+    font-weight: bold;
+}
+
+#userEmail {
+    margin: 1vh 0vw;
+    padding: 0.5%;
+
+    width: 40vw;
+    height: 3vh;
+
+    border: 2px solid #14213d;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.searchSubmitBtnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#searchSubmitBtn {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    padding: 5px 10px;
+
+    width: 15vw;
+
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+
+    background-color: #74BDCB;
+    color: #14213d;
+
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*======================================================/
+/* SEARCH RESULTS TABLE STYLING */
+/*======================================================*/
+.searchResults {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userResultTable {
+    width: 100%;
+
+    text-align: center;
+}
+
+.tableHeadingRow {
+    background-color: #74BDCB;
+}
+
+.tableHeading {
+    margin: 0px;
+}
+
+.searchResUserType {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#changePrivilegeBtn {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+
+    background-color: #74BDCB;
+    color: #14213d;
+
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#deleteAccBtn {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 10px;
+
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+
+    background-color: #ee5858;
+    color: #14213d;
+
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*======================================================/
+/* ADD NEW USER STYLING */
+/*======================================================*/
+.addUserContainer {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#addUserLabel {
+    font-size: large;
+    font-weight: bold;
+}
+
+#addUserInput {
+    margin: 1vh 0vw;
+
+    width: 40vw;
+    height: 3vh;
+
+    border: 2px solid #14213d;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.addUserBtnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#addNewUserBtn {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    padding: 5px 10px;
+
+    width: 15vw;
+
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+
+    background-color: #74BDCB;
+    color: #14213d;
+
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

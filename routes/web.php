@@ -6,6 +6,10 @@ use App\Filament\Pages\DoctorDashboard;
 use App\Filament\Pages\PharmacistDashboard;
 
 // Define the routes for each dashboard with a name that matches the role
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::get('/admin/dashboard', function () {
     return view('filament.pages.admin-dashboard');
 })->name('filament.admin.pages.admin-dashboard');

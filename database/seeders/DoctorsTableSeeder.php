@@ -17,31 +17,5 @@ class DoctorsTableSeeder extends Seeder
             'specialization' => 'General Practitioner',
             'availability_status' => 'Available',
         ]);
-        DB::table('doctors')->insert([
-            'first_name' => 'Robert',
-            'last_name' => 'Brown',
-            'email' => 'robert.brown@example.com',
-            'phone_number' => '555-7890',
-            'specialization' => 'General Practitioner',
-            'availability_status' => 'Available',
-        ]);
-
-        DB::table('doctors')->insert([
-            'first_name' => 'Alice',
-            'last_name' => 'Johnson',
-            'email' => 'alice.johnson@example.com',
-            'phone_number' => '555-5678',
-            'specialization' => 'Pediatrics',
-            'availability_status' => 'Busy',
-        ]);
-
-        DB::table('doctors')->insert([
-            'first_name' => 'Mark',
-            'last_name' => 'Thompson',
-            'email' => 'mark.thompson@example.com',
-            'phone_number' => '555-8765',
-            'specialization' => 'Orthopedics',
-            'availability_status' => 'Available',
-        ]);
     }
 }

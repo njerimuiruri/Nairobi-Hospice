@@ -27,7 +27,7 @@ class DoctorResource extends Resource
     {
         // Allow view access to admin, doctors, and receptionist roles
         $userRole = Auth::user()->userRole->name;
-        return in_array($userRole, ['admin', 'doctor', 'receptionist']);
+        return in_array($userRole, ['admin', 'receptionist']);
     }
 
     public static function canCreate(): bool
@@ -56,7 +56,14 @@ class DoctorResource extends Resource
                 TextInput::make('email')->email()->required(),
                 TextInput::make('phone_number')->label('Phone')->required(),
                 TextInput::make('specialization')->label('Specialization')->required(),
-
+                Select::make('staff_id')
+                ->label('Staff')
+                ->options(Doctor::whereNotNull('first_name')
+                    ->get()
+                    ->mapWithKeys(function ($doctor) {
+                        return [$doctor->id => "{$doctor->first_name} {$doctor->last_name}"];
+                    }))
+                ->required(),
                 Select::make('availability_status')
                     ->label('Availability Status')
                     ->options([

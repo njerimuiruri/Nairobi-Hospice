@@ -12,7 +12,7 @@
 
 <body>
     <div class="navigationBar">
-        <a class="navigationItem" href="#">Log in</a>
+        <a class="navigationItem" href="admin">Log in</a>
     </div>
     <div class="mainContent">
         <div class="textContent">

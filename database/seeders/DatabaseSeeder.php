@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             DoctorsTableSeeder::class,
             ConsultationSeeder::class,
             PrescriptionsTableSeeder::class,
+            DoctorProfileSeeder::class,
         ]);
 
         $this->seedUsersWithRoles();
